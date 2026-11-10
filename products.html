@@ -24,6 +24,38 @@
     <h1>Our Products</h1>
     <p>Everything is baked fresh daily. Prices below are ranges. There is no online checkout, so please <a href="contact.html">send a pre-order request</a> or visit us in the store.</p>
 
+    <section aria-labelledby="builder-heading">
+      <h2 id="builder-heading">Build Your Pre-Order List</h2>
+      <p>Pick a category, add the items you want, and we will fill them into the pre-order form for you. Your list is saved on this device, so it is still here if you come back later.</p>
+
+      <noscript>
+        <p>Turn on JavaScript to build a pre-order list, or simply list your items on the <a href="contact.html">pre-order form</a>.</p>
+      </noscript>
+
+      <div class="filter-buttons" role="group" aria-label="Filter products by category">
+        <button type="button" class="filter-button" data-category="all" aria-pressed="true">All items</button>
+        <button type="button" class="filter-button" data-category="bread" aria-pressed="false">Breads</button>
+        <button type="button" class="filter-button" data-category="pastry" aria-pressed="false">Pastries</button>
+        <button type="button" class="filter-button" data-category="cake" aria-pressed="false">Cakes</button>
+      </div>
+      <p id="filter-status" class="filter-status" aria-live="polite"></p>
+
+      <div class="builder">
+        <ul id="product-list" class="product-list"></ul>
+
+        <aside class="order-box" aria-labelledby="order-heading">
+          <h3 id="order-heading">My Pre-Order List</h3>
+          <p id="order-empty">Your list is empty. Use "Add to my list" to start.</p>
+          <ul id="order-items" class="order-items" aria-live="polite"></ul>
+          <p id="order-total" class="order-total"></p>
+          <div id="order-actions" class="order-actions" hidden>
+            <a href="contact.html" class="button-link">Send this list with my pre-order</a>
+            <button type="button" id="clear-order" class="secondary-button">Clear list</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
     <section>
       <h2>Breads</h2>
       <img src="media/Bakery_c/bakery-bread_c.png" alt="Rustic sourdough and whole grain loaves dusted with flour in a glass bakery case" width="500">
@@ -65,5 +97,6 @@
     <p>&copy; 2026 North Star Bakery. Baked by hand for our neighborhood.</p>
   </footer>
 
+  <script src="scripts.js"></script>
 </body>
 </html>
