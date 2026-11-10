@@ -27,23 +27,26 @@
       <h2>Send a Pre-Order or Question</h2>
       <p>Fields marked required must be filled in. We will reply by email within one business day.</p>
 
-      <form action="#" method="post">
+      <form id="preorder-form" action="#" method="post" novalidate>
         <fieldset>
           <legend>Your Contact Information</legend>
 
           <p>
             <label for="name">Full name (required)</label><br>
-            <input type="text" id="name" name="name" required minlength="2" maxlength="60" autocomplete="name">
+            <input type="text" id="name" name="name" required minlength="2" maxlength="60" autocomplete="name" aria-describedby="name-error">
+            <span class="error-message" id="name-error" aria-live="polite"></span>
           </p>
 
           <p>
             <label for="email">Email address (required)</label><br>
-            <input type="email" id="email" name="email" required autocomplete="email">
+            <input type="email" id="email" name="email" required autocomplete="email" aria-describedby="email-error">
+            <span class="error-message" id="email-error" aria-live="polite"></span>
           </p>
 
           <p>
             <label for="phone">Phone number, optional (format: 703-555-1234)</label><br>
-            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autocomplete="tel">
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autocomplete="tel" aria-describedby="phone-error">
+            <span class="error-message" id="phone-error" aria-live="polite"></span>
           </p>
         </fieldset>
 
@@ -52,23 +55,27 @@
 
           <p>
             <label for="request-type">Request type (required)</label><br>
-            <select id="request-type" name="request-type" required>
+            <select id="request-type" name="request-type" required aria-describedby="request-type-error">
               <option value="">Choose one</option>
               <option value="pre-order">Pre-order</option>
               <option value="custom-cake">Custom cake</option>
               <option value="event">Event or catering order</option>
               <option value="question">General question</option>
             </select>
+            <span class="error-message" id="request-type-error" aria-live="polite"></span>
           </p>
 
           <p>
-            <label for="pickup-date">Pickup date (required)</label><br>
-            <input type="date" id="pickup-date" name="pickup-date" required min="2026-01-01">
+            <label for="pickup-date">Pickup date (required, closed Mondays)</label><br>
+            <input type="date" id="pickup-date" name="pickup-date" required aria-describedby="pickup-date-error">
+            <span class="error-message" id="pickup-date-error" aria-live="polite"></span>
           </p>
 
           <p>
             <label for="item-details">Item details, such as items and quantities (required)</label><br>
-            <textarea id="item-details" name="item-details" rows="4" cols="40" required minlength="5" maxlength="500"></textarea>
+            <span class="saved-note" id="saved-list-note" aria-live="polite"></span>
+            <textarea id="item-details" name="item-details" rows="4" cols="40" required minlength="5" maxlength="500" aria-describedby="saved-list-note item-details-error"></textarea>
+            <span class="error-message" id="item-details-error" aria-live="polite"></span>
           </p>
 
           <p>
@@ -78,6 +85,7 @@
         </fieldset>
 
         <button type="submit">Send My Request</button>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
       </form>
     </section>
 
@@ -107,5 +115,6 @@
     <p>&copy; 2026 North Star Bakery. Baked by hand for our neighborhood.</p>
   </footer>
 
+  <script src="scripts.js"></script>
 </body>
 </html>
